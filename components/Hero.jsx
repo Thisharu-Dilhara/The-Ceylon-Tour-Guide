@@ -79,7 +79,7 @@ export default function Hero() {
                         </motion.span>
                     </motion.h1>
 
-                    {/* DESCRIPTION - Mobile වලදී max-width පාලනය කර ඇත */}
+
                     <motion.p
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -90,7 +90,7 @@ export default function Hero() {
                         remote, exclusive and seamless.
                     </motion.p>
 
-                    {/* BUTTON - Mobile වලදී width full කිරීමට අවශ්‍ය නම් w-full දාන්න පුළුවන් */}
+
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
