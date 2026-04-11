@@ -23,26 +23,27 @@ export default function Hero() {
             </motion.div>
 
             {/* Subtle Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent z-0"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-0"></div>
 
             {/* Content */}
             <div className="relative z-10 h-full flex items-center px-6 md:px-12 max-w-7xl mx-auto">
                 <div className="max-w-3xl">
-                    {/* TOP SMALL TEXT - Slides in from left */}
+
+                    {/* TOP SMALL TEXT - Mobile වලදී text-base */}
                     <motion.p
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                        className="text-white text-lg md:text-xl font-light mb-2"
+                        className="text-white text-base md:text-xl font-light mb-2"
                     >
                         Welcome to <span className="font-bold">The Ceylon Tour Guide</span>
                     </motion.p>
 
-                    {/* MAIN HEADING - Character by Character animation for "JOURNEYS TO" */}
+                    {/* MAIN HEADING - Responsive Sizes (text-4xl for Mobile, 8xl for Desktop) */}
                     <motion.h1
                         initial="hidden"
                         animate="visible"
-                        className="text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter"
+                        className="text-5xl sm:text-7xl md:text-8xl font-black text-white leading-[1.1] md:leading-[0.9] tracking-tighter uppercase"
                     >
                         <motion.span
                             variants={{
@@ -68,7 +69,6 @@ export default function Hero() {
                             ))}
                         </motion.span>
                         <br />
-                        {/* "SRI LANKA" - Slides up and fades in */}
                         <motion.span
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -79,28 +79,28 @@ export default function Hero() {
                         </motion.span>
                     </motion.h1>
 
-                    {/* DESCRIPTION - Fades in and slides up */}
+                    {/* DESCRIPTION - Mobile වලදී max-width පාලනය කර ඇත */}
                     <motion.p
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 1.8, ease: "easeOut" }}
-                        className="text-gray-100 mt-8 text-lg md:text-xl max-w-xl leading-relaxed font-medium"
+                        className="text-gray-100 mt-6 md:mt-8 text-sm md:text-xl max-w-xs md:max-w-xl leading-relaxed font-medium"
                     >
                         Our safaris exemplify the qualities of modern adventure travel —
                         remote, exclusive and seamless.
                     </motion.p>
 
-                    {/* BUTTON - Fades in and has a subtle pulse on hover */}
+                    {/* BUTTON - Mobile වලදී width full කිරීමට අවශ්‍ය නම් w-full දාන්න පුළුවන් */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5, delay: 2.2 }}
-                        className="mt-10"
+                        className="mt-8 md:mt-10"
                     >
                         <motion.button
                             whileHover={{ scale: 1.05, boxShadow: "0px 0px 15px rgba(234, 179, 8, 0.5)" }}
                             whileTap={{ scale: 0.95 }}
-                            className="bg-[#EAB308] px-10 py-4 rounded-full text-black font-bold uppercase tracking-wide shadow-lg"
+                            className="bg-[#EAB308] px-8 py-3 md:px-10 md:py-4 rounded-full text-black font-bold uppercase tracking-wide shadow-lg text-sm md:text-base"
                         >
                             Plan Your Tour
                         </motion.button>
@@ -108,19 +108,14 @@ export default function Hero() {
                 </div>
             </div>
 
-            {/* Sri Lanka Map Outline - Fades in gently */}
+            {/* Sri Lanka Map Outline - Mobile වලදී hide කිරීම වඩාත් සුදුසුයි */}
             <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.2 }}
+                animate={{ opacity: 0.15 }}
                 transition={{ duration: 1.5, delay: 2 }}
-                className="absolute right-[-100px] top-1/2 -translate-y-1/2 z-0 h-[80%] aspect-[0.7]"
+                className="absolute right-[-100px] top-1/2 -translate-y-1/2 z-0 h-[80%] aspect-[0.7] hidden lg:block"
             >
-                {/* <Image
-                    src="/images/sl-map-outline.png" 
-                    alt="Sri Lanka Map Outline"
-                    fill
-                    className="object-contain"
-                /> */}
+
             </motion.div>
         </section>
     );
