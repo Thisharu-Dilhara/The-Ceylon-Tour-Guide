@@ -48,7 +48,7 @@ export default function Reviews() {
                 {/* Cards Container - Mobile horizontal scroll, Desktop grid */}
                 <div
                     className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory pt-12 pb-8"
-                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }} // Firefox සහ IE සඳහා Scrollbar එක මකයි
+                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                     {testimonials.map((item, index) => (
                         <motion.div
@@ -57,10 +57,6 @@ export default function Reviews() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.2 }}
-                            /* Mobile වලදී w-[85vw] (තිරයෙන් 85%) පළලක් ගනී.
-                              flex-shrink-0 මගින් තෙරපීම වළක්වයි.
-                              md:w-auto මගින් Desktop වලදී සාමාන්‍ය Grid පළල ගනී. 
-                            */
                             className="relative w-[85vw] sm:w-[350px] md:w-auto flex-shrink-0 snap-center bg-[#F3F4F6] p-8 md:p-10 pt-16 rounded-[30px] shadow-sm hover:shadow-xl transition-all group"
                         >
                             {/* Floating User Image */}
@@ -105,7 +101,6 @@ export default function Reviews() {
 
             </div>
 
-            {/* Chrome/Safari වල Scrollbar එක සැඟවීමට */}
             <style jsx>{`
                 div::-webkit-scrollbar {
                     display: none;
