@@ -36,7 +36,7 @@ export default function Reviews() {
             <div className="max-w-7xl mx-auto relative z-10">
 
                 {/* Header */}
-                <div className="mb-20">
+                <div className="mb-12 md:mb-20">
                     <h2 className="text-5xl md:text-6xl font-[900] text-black tracking-tighter uppercase leading-none">
                         TRAVELER'S <span className="text-[#B48F00]">EXPERIENCES</span>
                     </h2>
@@ -45,8 +45,11 @@ export default function Reviews() {
                     </p>
                 </div>
 
-                {/* Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-8">
+                {/* Cards Container - Mobile horizontal scroll, Desktop grid */}
+                <div
+                    className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory pt-12 pb-8"
+                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }} // Firefox සහ IE සඳහා Scrollbar එක මකයි
+                >
                     {testimonials.map((item, index) => (
                         <motion.div
                             key={index}
@@ -54,7 +57,11 @@ export default function Reviews() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.2 }}
-                            className="relative bg-[#F3F4F6] p-8 md:p-10 pt-16 rounded-[30px] shadow-sm hover:shadow-xl transition-all group"
+                            /* Mobile වලදී w-[85vw] (තිරයෙන් 85%) පළලක් ගනී.
+                              flex-shrink-0 මගින් තෙරපීම වළක්වයි.
+                              md:w-auto මගින් Desktop වලදී සාමාන්‍ය Grid පළල ගනී. 
+                            */
+                            className="relative w-[85vw] sm:w-[350px] md:w-auto flex-shrink-0 snap-center bg-[#F3F4F6] p-8 md:p-10 pt-16 rounded-[30px] shadow-sm hover:shadow-xl transition-all group"
                         >
                             {/* Floating User Image */}
                             <div className="absolute -top-10 left-10 w-20 h-20 rounded-full border-4 border-white overflow-hidden shadow-lg group-hover:scale-110 transition-transform">
@@ -87,7 +94,7 @@ export default function Reviews() {
                 </div>
 
                 {/* Navigation Buttons (Bottom Right) */}
-                <div className="flex justify-end gap-4 mt-16">
+                <div className="flex justify-end gap-4 mt-8 md:mt-16">
                     <button className="p-4 bg-[#0B1508] text-white rounded-xl hover:bg-black transition-colors">
                         <ChevronLeft className="w-6 h-6" />
                     </button>
@@ -97,6 +104,13 @@ export default function Reviews() {
                 </div>
 
             </div>
+
+            {/* Chrome/Safari වල Scrollbar එක සැඟවීමට */}
+            <style jsx>{`
+                div::-webkit-scrollbar {
+                    display: none;
+                }
+            `}</style>
         </section>
     );
 }
