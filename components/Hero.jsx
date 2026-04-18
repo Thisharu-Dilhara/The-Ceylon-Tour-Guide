@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Hero() {
     return (
-        <section className="relative h-screen w-full overflow-hidden">
+        <section id="home" className="relative h-screen w-full overflow-hidden">
             {/* Background Image with Zoom Animation */}
             <motion.div
                 initial={{ scale: 1.1 }}
@@ -29,7 +29,6 @@ export default function Hero() {
             <div className="relative z-10 h-full flex items-center px-6 md:px-12 max-w-7xl mx-auto">
                 <div className="max-w-3xl">
 
-                    {/* TOP SMALL TEXT - Mobile වලදී text-base */}
                     <motion.p
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -39,7 +38,6 @@ export default function Hero() {
                         Welcome to <span className="font-bold">The Ceylon Tour Guide</span>
                     </motion.p>
 
-                    {/* MAIN HEADING - Responsive Sizes (text-4xl for Mobile, 8xl for Desktop) */}
                     <motion.h1
                         initial="hidden"
                         animate="visible"
@@ -79,7 +77,6 @@ export default function Hero() {
                         </motion.span>
                     </motion.h1>
 
-
                     <motion.p
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -89,7 +86,6 @@ export default function Hero() {
                         Our safaris exemplify the qualities of modern adventure travel —
                         remote, exclusive and seamless.
                     </motion.p>
-
 
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -108,14 +104,12 @@ export default function Hero() {
                 </div>
             </div>
 
-            {/* Sri Lanka Map Outline - Mobile වලදී hide කිරීම වඩාත් සුදුසුයි */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.15 }}
                 transition={{ duration: 1.5, delay: 2 }}
                 className="absolute right-[-100px] top-1/2 -translate-y-1/2 z-0 h-[80%] aspect-[0.7] hidden lg:block"
             >
-
             </motion.div>
         </section>
     );
